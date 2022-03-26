@@ -1,0 +1,13 @@
+	tc->l = 0;
+	tc->k = 0;
+	tc->Hp=EVP_md5();
+
+	return (tc);
+}
+
+void TC_DEALER_free(TC_DEALER *tc)
+{
+        int i;
+	if (tc == NULL) return;
+	if (tc->n != NULL) BN_clear_free(tc->n);
+	if (tc->u != NULL) BN_clear_free(tc->u);
